@@ -31,9 +31,12 @@ export function requireAuth(req: Request, res: Response, next: NextFunction){
         return res.status(401).send({message: 'No authorization headers.'})
     }
 
-    const token = req.headers.authorization
+    const token = req.headers.authorization.split(' ');
+    if(token.length !== 2){
+        return res.status(500).send({auth: false, message: 'failed to authenticate'});
+    }
 
-    return jwt.verify(token, configuration.jwt.secret, (err,decoded) => {
+    return jwt.verify(token[1], configuration.jwt.secret, (err,decoded) => {
         if(err){
             return res.status(500).send({auth: false, message: 'failed to authenticate'});
         }
