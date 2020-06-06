@@ -4,7 +4,7 @@ import { configuration } from './config/config'
 const c = configuration.dev;
 
 //Configure AWS
-var credentials = new AWS.SharedIniFileCredentials({profile: 'default'});
+var credentials = new AWS.SharedIniFileCredentials({profile: c.aws_profile});
 AWS.config.credentials = credentials;
 
 export const s3 = new AWS.S3({
@@ -25,7 +25,7 @@ export const getGetSignedUrl = (key: String) => {
 
     const url = s3.getSignedUrl('getObject', {
         Bucket : c.aws_media_bucket,
-        key : key,
+        Key : key,
         Expires : signedUrlExpireSeconds
     });
 
@@ -41,12 +41,11 @@ export const getGetSignedUrl = (key: String) => {
  */
 
  export const getPutSignedUrl = ( key: string ) => {
-     
     const signedUrlExpireSeconds = 60 * 5;
 
     const url = s3.getSignedUrl('putObject', {
         Bucket : c.aws_media_bucket,
-        key : key,
+        Key : key,
         Expires : signedUrlExpireSeconds
     });
 
