@@ -21,6 +21,9 @@ export const configuration = {
       "database": "",
       "host": "",
       "dialect": ""
+    },
+    "jwt": {
+      "secret" : process.env.JWT_SECRET
     }
   }
   
