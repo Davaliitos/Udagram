@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { FeedItem } from '../models/FeedItem';
+import { requireAuth } from '../../users/routes/auth.router';
 
 import * as AWS from '../../../../aws';
 
@@ -17,7 +18,7 @@ router.get('/', async (req: Request, res: Response) => {
 });
 
 //Get a signed url to put a new item in the bucket
-router.get('/signed-url/:fileName', async (req: Request, res: Response) => {
+router.get('/signed-url/:fileName', requireAuth, async (req: Request, res: Response) => {
     let { fileName } = req.params;
     const url = AWS.getPutSignedUrl(fileName);
     res.status(201).send({ url : url });
@@ -36,7 +37,7 @@ router.get('/:id', async (req: Request, res: Response) => {
 });
 
 //Update a resource by ID
-router.put('/:id', async (req: Request, res: Response) => {
+router.put('/:id', requireAuth, async (req: Request, res: Response) => {
     let { id } = req.params;
     let { caption, url } = req.body;
 
@@ -61,7 +62,7 @@ router.put('/:id', async (req: Request, res: Response) => {
 
 
 //Post meta data and the filename after a file is uploaded
-router.post('/', async (req: Request, res: Response) => {
+router.post('/',requireAuth, async (req: Request, res: Response) => {
 
     const { caption, url } = req.body; 
 
