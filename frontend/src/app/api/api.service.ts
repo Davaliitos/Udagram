@@ -24,6 +24,11 @@ export class ApiService {
     alert(error.message);
   }
 
+  clearToken(){
+    this.httpOptions.headers = new HttpHeaders({'Content-Type': 'application/json'});
+    this.token = '';
+  }
+
   setAuthToken(token) {
     this.httpOptions.headers = this.httpOptions.headers.append('Authorization', `jwt ${token}`);
     this.token = token;

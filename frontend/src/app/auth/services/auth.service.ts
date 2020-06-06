@@ -44,6 +44,7 @@ export class AuthService {
 
   logout(): boolean {
     this.setTokenAndUser(null, null);
+    this.api.clearToken();
     return true;
   }
 
