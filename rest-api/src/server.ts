@@ -17,11 +17,13 @@ import { V0MODELS } from './controllers/v0/model.index';
     const app = express();
     const port = process.env.PORT || 8080;
 
+    var origin : string = undefined;
+
     app.use(bodyParser.json());
 
     //CORS Should be restricted
     app.use((req, res, next) => {
-        res.header("Access-Control-Allow-Origin", "http://localhost:8100");
+        res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
         next();
     });
