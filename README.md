@@ -56,3 +56,8 @@ Image Serve
 http://udagram-fdavalos-imagefilter-dev.us-east-1.elasticbeanstalk.com/
 ```
 
+## Example Endpoint Image Filter Server
+
+```bash
+http://udagram-fdavalos-imagefilter-dev.us-east-1.elasticbeanstalk.com/filteredImage?image_url=https://i.ibb.co/ZYW3VTp/brown-brim.png
+```
