@@ -41,7 +41,10 @@
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~10.12.0",
+    "acorn": "^7.2.0",
     "codelyzer": "~4.5.0",
+    "handlebars": "^4.7.6",
+    "https-proxy-agent": "^5.0.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.1.4",
@@ -49,10 +52,17 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "kind-of": "^6.0.3",
+    "lodash": "^4.17.15",
+    "minimist": "^1.2.5",
+    "mixin-deep": "^2.0.1",
     "protractor": "~5.4.0",
+    "serialize-javascript": "^3.1.0",
+    "set-value": "^3.0.2",
     "ts-node": "~8.0.0",
     "tslint": "~5.12.0",
-    "typescript": "~3.1.6"
+    "typescript": "~3.1.6",
+    "websocket-extensions": "^0.1.4"
   },
   "description": "An Ionic project"
 }
